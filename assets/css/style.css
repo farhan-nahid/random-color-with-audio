@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #1e272e;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+header {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+  position: relative;
+  -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+}
+
+header p {
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  background-image: linear-gradient(to right, salmon, #f83292);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 2em;
+  text-transform: uppercase;
+  animation: animate 5s ease-in infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes animate {
+  0% {
+    transform: translateX(-20px);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0px);
+  }
+  60% {
+    transform: translateX(-20px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+#board__container {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(3, 170px);
+  grid-template-rows: minmax(120px, auto) repeat(3, 130px);
+}
+
+#board__container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #f83292;
+}
+
+footer p {
+  margin: 0;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  background-image: linear-gradient(to right, salmon, #f83292);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 1em;
+  text-transform: uppercase;
+  animation: animate 5s ease-in infinite;
+}
+
+/* 
+  ==================
+     media quary 
+  ==================
+*/
+
+@media only screen and (max-width: 600px) {
+  #board__container {
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: minmax(90px, auto) repeat(3, 80px);
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  body {
+    height: auto;
+  }
+
+  footer p {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 368px) {
+  #board__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  footer p {
+    font-size: 0.6em;
+  }
+}
